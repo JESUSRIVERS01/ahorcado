@@ -8,7 +8,7 @@
 /* ==========================================================================
 	Parametros Globales
 ========================================================================== */
-
+  
 body,
 html{
 	width: 100%;
@@ -273,7 +273,7 @@ input[type="button"]:hover{
 
 	
 /* ==========================================================================
-	Estilos visiales del sitio.
+	Estilos visuales del sitio.
 ========================================================================== */
 #fondo_body{
 	background: #002d38 url(../img/ahorcado_fondo.webp) no-repeat center bottom;
@@ -298,6 +298,7 @@ input[type="button"]:hover{
 		top: 0px;
 		left: 0px;
 	}
+	
 		
 
 
