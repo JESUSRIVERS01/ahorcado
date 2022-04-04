@@ -338,6 +338,7 @@ input[type="button"]:hover{
 				animation-iteration-count: infinite;
 				transform-origin: 0 50%;
 				transform: translateX(0) scaleX(.9);
+				animation-timing-function: linear;
 			  }
 			  
 
@@ -347,19 +348,25 @@ input[type="button"]:hover{
 				0%{
 					transform: translateX(0) scaleX(.9);
 				}
+				6%{
+					transform: translateX(0) scaleX(.95);
+				}
 				12%{
 					transform: translateX(9.999%) scaleX(1);
 				}
 				
-				38%{
+				40%{
 					transform: translateX(33.33%) scaleX(1);
 				}
 				
 				50%{
 					transform: translateX(43.33%)  scaleX(.9);
 				}
-				60%{
-					transform: translateX(41.663%) scaleX(1);
+				56%{
+					transform: translateX(38.33%)  scaleX(.95);
+				}
+				62%{
+					transform: translateX(23.331%) scaleX(1);
 				}
 				90%{
 					transform: translateX(0%) scaleX(1);
