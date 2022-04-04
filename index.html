@@ -9,7 +9,7 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="viewport" content="width=device-width, user-scalable=yes, minimum-scale=1.0, maximum-scale=3.0, initial-scale=1.0" />
 
-		
+		 
 		<meta http-equiv="Content-Encoding" content="gzip" />
 		<meta http-equiv="Accept-Encoding" content="gzip, deflate" />
 				
@@ -17,7 +17,7 @@
 		<link rel="icon" href="favicon.ico?v1" />
 		<link rel="apple-touch-icon" href="apple-touch-icon.png" />
 				
-		<title>Juan Palma - Porfolio</title>
+		<title>ahorcado</title>
 		<meta name="description" content="Quién es Juan Palma, este es mi porfolio (portafolio), podras conocer un poco de mi trabajo, mis capacidades, formación, hobbies y más."></meta>
 
 					
@@ -31,10 +31,9 @@
 		<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,600,900&display=swap"></noscript>
 		<!--[if lte IE 8]> <link rel="stylesheet" href="assets/css/resetIE.css" /> <![endif]-->
 		
-		<script defer src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.8.1/lottie.min.js"
-			integrity="sha512-V1YyTKZJrzJNhcKthpNAaohFXBnu5K9j7Qiz6gv1knFuf13TW/3vpgVVhJu9fvbdW8lb5J6czIhD4fWK2iHKXA=="
-			crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-		<script defer src="assets/js/librerias/parallax.js" crossorigin="anonymous"  referrerpolicy="no-referrer"></script>
+		
+			
+		
 		<script defer data-main="assets/js/owner/main" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"
 			integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg=="
 			crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -65,15 +64,63 @@
 
 		<!-- Google Tag Manager -->
 	</head>
-	<body id="fondo_body" inputmode="text">
-		<!-- Google Tag Manager (noscript) -->
+	<body id="fondo_body" inputmode="text" >
+		<div id="contenedor">
+			<div id="tituloYMenu">
+				<div id="titulo">
+					JUEGO DEL AHORCADO
+				</div>
+			</div>	
+			<div id="central">
+				<div id="muñecoYpalabras">
+					<div id="muñeco">
+						<canvas id="canvas" width="600" height="400">
+						</canvas>
+					</div>
+				</div>
+				<div id="vidasYerrores">
+					<div id="vidas">
+						<div id="vidasTexto">
+							total de vidas
+						</div>
+						<div id="vidasNumero">
+							
+						</div>
+					</div>
+					<div id="errores">
+						<div id="errorestexto">
+							letra incorrecta
+						</div>
+						<div id="erroresLetra">
+							
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div id="botones">
+				<div id="botonEinput">
+					
+					<div id="inputTexto">
+						<input type="text"  id="estiloInput"  placeholder="agregar nueva palabra" >
+					</div>
+					<div id="botonAgregar" >
+						<button id="botonjugar" class="estiloBoton" >jugar</button>
+					</div>
+					
+				</div>
+				
+			</div>
+			<div id="rodapie">
+
+			</div>
+		</div>
 	
 
-		<!-- Colocar el contenido de su sitio aqui -->
-		<div id="esfera"> </div>
+	
 
 
 		
-		<div id="preloadOculto" class="desaparece"></div>
+		
 	</body>
 </html>

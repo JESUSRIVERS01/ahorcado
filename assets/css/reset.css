@@ -649,22 +649,14 @@ input[type="submit"]{
 	font-size: 80%;
 	padding: 6px 16px;
 	border-radius: 21px;
-	border: 1px solid #a3a3a3;
+	
 	background: aliceblue;
 /* 	background: -webkit-linear-gradient(#ffffff 0%, #e4f3f8 100%); */
 	outline: 0;
 	cursor: pointer;
 }
 
-button:hover,
-input[type="button"]:hover,
-input[type="reset"]:hover,
-input[type="submit"]:hover{
-	color: #fff;
-	border: 1px solid #696969;
-	background: #5d7a93;
-/* 	background: -webkit-linear-gradient(#67a2d6 0%, #5d7a93 100%); */
-}
+
 
 
 
