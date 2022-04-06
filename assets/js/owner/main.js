@@ -1,13 +1,15 @@
-var divPadre=document.getElementById("botones");
-var divHijo=document.getElementById("botonEinput");
-var divNieto=document.getElementById("botonAgregar");
-var divNietoDos=document.getElementById("inputTexto");
-var crearBoton=document.createElement("button");
-var botonjugar=document.getElementById("botonjugar");
-botonjugar.textContent="jugar";
-var agregarPalabra=document.getElementById("agregarPalabra");
-var palabraNueva=document.getElementById("estiloInput");
-var palabrasDelJuego=["hola","adios","omar","ricardo","caleb","pera","elefante","tornillo","qwerty","zorro"];
+var botonjugar=document.getElementById("botonUno");
+var botonDos=document.getElementById("botonDos");
+var contenedor=document.getElementById("contenedor")
+var titulo=document.getElementById("tituloYMenu");
+var palabraNueva=document.querySelector(".estiloInput");
+var botEinp=document.getElementById("botones");
+var cajaInput=document.getElementById("inputTexto");
+var errorL=document.getElementById("errorestexto");
+var nVidas=document.getElementById("vidasTexto");
+var mensaje=document.getElementById("spann");
+var aceptar=document.getElementById("aceptar");
+var palabrasDelJuego=["hola","adios","omar","ricardo","caleb","pera","elefante","tornillo","qwerty","zorro","arbol","perro","manzana","platano","aguacate","clavo","sofa","refrigerar","gato"];
 var contador=document.getElementById("vidasNumero");
 var erroresLetra=document.getElementById("erroresLetra");
 var titulo=document.getElementById("titulo");
@@ -32,62 +34,120 @@ var cajaLetra="";
 var cajaDos="";
 var cajaTres="";
    var base = ()=>{
-		ctx.beginPath();
-		ctx.moveTo(250, 230); 
-		ctx.lineTo(150, 260);
-		ctx.lineTo(350, 260);
-		ctx.fill();
-		ctx.beginPath();
-		ctx.moveTo(250, 230);
-		ctx.lineTo(250,50);
-		ctx.stroke();
-		ctx.beginPath();
-		ctx.moveTo(250, 50);
-		ctx.lineTo(400,50);
-		ctx.stroke();
-		ctx.beginPath();
-		ctx.moveTo(400, 50);
-		ctx.lineTo(400,70);
-		ctx.stroke();
+	ctx.fillRect(0,260,600,2);
+	ctx.beginPath();
+	ctx.moveTo(150, 230); 
+	ctx.lineTo(100, 260);
+	ctx.lineTo(200, 260);
+	ctx.fill();
+	ctx.beginPath();
+	ctx.moveTo(150, 230);
+	ctx.lineTo(150,50);
+	ctx.stroke();
+	ctx.beginPath();
+	ctx.moveTo(150, 50);
+	ctx.lineTo(300,50);
+	ctx.stroke();
+	ctx.beginPath();
+	ctx.moveTo(450, 230); 
+	ctx.lineTo(500, 260);
+	ctx.lineTo(400, 260);
+	ctx.fill();
+	ctx.beginPath();
+	ctx.moveTo(450, 230);
+	ctx.lineTo(450,50);
+	ctx.stroke();
+	ctx.beginPath();
+	ctx.moveTo(300, 50);
+	ctx.lineTo(450,50);
+	ctx.stroke();
 	}
 	var cabeza = () => {
 		ctx.beginPath();
-		ctx.arc(400, 95, 25, 0, Math.PI * 2, true); // Outer circle
-		ctx.moveTo(410, 110);
-		ctx.arc(400, 110, 10, 0, Math.PI, true);  // Mouth (clockwise)
-		ctx.moveTo(395, 85);
-		ctx.arc(395, 85, 2, 0, Math.PI * 2, true);  // Left eye
-		ctx.moveTo(405, 85);
-		ctx.arc(405, 85, 2, 0, Math.PI * 2, true);  // Right eye
+		ctx.arc(300, 95, 25, 0, Math.PI * 2, true); // Outer circle
+		ctx.moveTo(310, 110);
+		ctx.arc(300, 110, 10, 0, Math.PI, true);  // Mouth (clockwise)
+		ctx.stroke();
+		ctx.beginPath();
+		ctx.fillStyle="black";
+		ctx.moveTo(296, 85);
+		ctx.arc(293, 85, 2, 0, Math.PI * 2, true);  // Left eye
+		ctx.moveTo(310, 85);
+		ctx.arc(307, 85, 2, 0, Math.PI * 2, true);  // Right eye
+		ctx.fill();
+		ctx.stroke();
+		ctx.beginPath();
+		ctx.moveTo(300, 50);
+		ctx.lineTo(300,70);
 		ctx.stroke();
 	}
+	var cabezaFeliz=()=>{
+		ctx.clearRect(0, 0, 600,262);
+		ctx.fillRect(150,240,300,2);
+		ctx.beginPath();
+		ctx.arc(300, 95, 25, 0, Math.PI * 2, true); // Outer circle
+		ctx.moveTo(310, 100);
+		ctx.arc(300, 100, 10, 0, Math.PI, false);  // Mouth (clockwise)
+		ctx.stroke();
+		ctx.beginPath();
+		ctx.fillStyle="black";
+		ctx.moveTo(296, 85);
+		ctx.arc(293, 85, 2, 0, Math.PI * 2, true);  // Left eye
+		ctx.moveTo(310, 85);
+		ctx.arc(307, 85, 2, 0, Math.PI * 2, true);  // Right eye
+		ctx.fill();
+		ctx.stroke();
+	}
+	var cabezatriste=()=>{
+		ctx.clearRect(0, 0, 600,262);
+		base();
+		ctx.beginPath();
+		ctx.moveTo(300, 50);
+		ctx.lineTo(300,70);
+		ctx.stroke();
+		ctx.fillRect(0,260,600,2);	
+		ctx.beginPath();
+		ctx.arc(300, 235, 25, 0, Math.PI * 2, true); // Outer circle
+		ctx.moveTo(300, 255);
+		ctx.arc(309, 250, 9,.8*Math.PI, 1.8*Math.PI, false);  // Mouth (clockwise)
+		ctx.stroke();
+		ctx.beginPath();
+		ctx.fillStyle="red";
+		ctx.moveTo(292, 233);
+		ctx.arc(289, 233, 3, 0, Math.PI * 2, true);  // Left eye
+		ctx.moveTo(309, 224)
+		ctx.arc(306, 224, 3, 0, Math.PI * 2, true);  // Right eye
+		ctx.fill();
+		ctx.stroke();
+	}
+
 	var torso = ()=> {
 		ctx.beginPath();
-		ctx.moveTo(400, 120);
-		ctx.lineTo(400,200);
+		ctx.moveTo(300, 120);
+		ctx.lineTo(300,200);
 		ctx.stroke();
 	}
 	var brazoIzquierdo = ()=> {
 		ctx.beginPath();
-		ctx.moveTo(400, 130);
-		ctx.lineTo(450,120);
+		ctx.moveTo(300, 130);
+		ctx.lineTo(250,120);
 		ctx.stroke();
 	}
 	var brazoDerecho=()=> {
 		ctx.beginPath();
-		ctx.moveTo(400, 130);
+		ctx.moveTo(300, 130);
 		ctx.lineTo(350,120);
 		ctx.stroke();
 	}
 	var piernaIzquierda=()=> {
 		ctx.beginPath();
-		ctx.moveTo(400, 200);
-		ctx.lineTo(450,240);
+		ctx.moveTo(300, 200);
+		ctx.lineTo(250,240);
 		ctx.stroke();
 	}
 	var piernaDerecha=()=> {
 		ctx.beginPath();
-		ctx.moveTo(400, 200);
+		ctx.moveTo(300, 200);
 		ctx.lineTo(350,240);
 		ctx.stroke();
 	}
@@ -99,9 +159,7 @@ var cajaTres="";
 	var perdiste = (a,b,c,d,e,f)=>{
 		window.removeEventListener("keyup",compararEntrada);
 		uno=0;
-		botonjugar.classList.remove("ejs");
-		divNietoDos.classList.remove("ejs");
-		botonjugar.textContent="jugar de nuevo";
+		botEinp.classList.remove("ejs");
 		ctx.font = '40px calibri';
 		ctx.fillStyle = 'Black';
 		ctx.textAlign="center";
@@ -118,15 +176,17 @@ var cajaTres="";
 		});
 	}
 	var limpiar = ()=>{	
-		uno=1;
+		uno=1;							
 		contador.textContent="";
 		errores="";
 		cajaDos="";
 		cajaTres="";
 		erroresLetra.textContent="";
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
-		botonjugar.classList.add("ejs");
-		divNietoDos.classList.add("ejs");
+		botEinp.classList.add("ejs");
+		contenedor.classList.add("ejsa");
+		contador.classList.add("azul");
+		erroresLetra.classList.add("azul");
 		base();
 	}
 	var compararEntrada=(e)=>{			
@@ -145,7 +205,6 @@ var cajaTres="";
 							ctx.textBaseline = "alphabetic";
 							ctx.fillText(e.key,posiciones+(linea/2),350); 
 							ctx.stroke();
-
 							if(/[1-6]/.test(numVidas)){
 								cajaDos=p+cajaDos;
 								if(cajaDos.length==texto.length){
@@ -155,6 +214,12 @@ var cajaTres="";
 									d="acertaste a la palabra :"
 									e=300
 									f=300
+									cabezaFeliz();
+									torso();
+									brazoDerecho();
+									brazoIzquierdo();
+									piernaDerecha();
+									piernaIzquierda();
 									perdiste(a,b,c,d,e,f);
 								}
 							}
@@ -182,6 +247,7 @@ var cajaTres="";
 								d="la palabra correcta es: "
 								e=300
 								f=300
+								cabezatriste();
 								perdiste(a,b,c,d,e,f);
 							}	
 						}
@@ -191,8 +257,12 @@ var cajaTres="";
 
 		}
 	};
-	var iniciarJuego=()=>{	
-		window.addEventListener("keyup",compararEntrada)																		
+	function iniciarJuego(){	
+		document.getElementById("vidas").classList.add("naranja");
+		document.getElementById("errores").classList.add("naranja");
+		window.addEventListener("keyup",compararEntrada)
+		errorL.textContent="Errores"		
+		nVidas.textContent="vidas"																
 		limpiar();
 		var azar = palabrasDelJuego[Math.floor(Math.random() * palabrasDelJuego.length)];
 		texto = azar;
@@ -210,15 +280,35 @@ var cajaTres="";
 			ctx.stroke();		
 		})
 	}
-	botonjugar.addEventListener("click",iniciarJuego);
-
-
-
 	
+	botonDos.addEventListener("click",function(e){
+		botonDos.textContent="Agregar"
+		cajaInput.classList.remove("ejs");
+		if (palabraNueva.value=="") {
+			return
+		}
+		if(regex.test(palabraNueva.value)){
+			var palabra=palabraNueva.value
+			var nrp=new RegExp(palabra)
+			if(!nrp.test(palabrasDelJuego)){
+				palabrasDelJuego.push(palabra);
+				console.log(palabra);
+				console.log(palabrasDelJuego);
+				palabraNueva.value="";
+				cajaInput.classList.add("ejs");
+			}
+			else{
+				// aceptar.classList.remove("ejs");
+				palabraNueva.value="";
+			}
+		}
+		else{
+			// aceptar.classList.remove("ejs");
 
-
-	
+		}
 		
+	})
+	botonjugar.addEventListener("click",iniciarJuego);
+	cajaInput.classList.add("ejs");
+	// mensaje.classList.add("ejs");
 	
-	
- 

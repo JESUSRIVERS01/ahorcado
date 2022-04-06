@@ -276,7 +276,7 @@ input[type="button"]:hover{
 	Estilos visuales del sitio.
 ========================================================================== */
 #fondo_body{
-	background: #002d38 url() no-repeat center bottom;
+	background: #11ad8c url() no-repeat center bottom;
 	background-size: cover;
 	overflow: hidden;
 }
@@ -297,6 +297,7 @@ input[type="button"]:hover{
 		position: absolute;
 		top: 0px;
 		left: 0px;
+		
 	}
 
 
@@ -305,81 +306,83 @@ input[type="button"]:hover{
 		display: flex;
 	}
 	#contenedor{
-		background: #90502f;
 		width: 800px;
 		margin: auto;
 		align-items: center;
 	}	
+		div.ejsa{
+		height: 90%;
+		display: grid;
+	}
 		#tituloYMenu{
+			background: #fff4f4;
+			border-radius: 15px;
 			position: relative;
-			background: #fff;
 			width: 800px;
-			height: 60px;
+			height: 40px;
 			margin:auto;
 			display: flex;
     		align-items: center;
 		}
+		
+		.azul{
+			background: #1e6475;
+			color: #fff4f4;
+		}
 			#titulo{
-				background: #06af15;
+				background: #1e6475;
+				color: #fff4f4;
 				position: relative;
 				width: 75%;
-				height: 50px;
+				height: 40px;
+				font-family: 'Lato', Arial, Helvetica, sans-serif;
 				text-align: center;
-				font-size: large;
+				font-size: 2em;
 				display: grid;
 				align-items: center;
-				font-size:35px;
 				letter-spacing:5px;
 				border-radius: 15px;
 				animation-name: example;
-				animation-duration: 2s;
-				/* animation-timing-function: ease-in-out; */
-				/* animation-direction: alternate; */
+				animation-duration: 3.5s;
 				animation-iteration-count: infinite;
-				transform-origin: 0 50%;
-				transform: translateX(0) scaleX(.9);
+				animation-timing-function: linear; 
+				animation-direction: alternate;
 			  }
 			  
-
-
 			@keyframes example {
-				
-				0%{
-					transform: translateX(0) scaleX(.9);
+				0%{ 
+					transform-origin: 0% 50%;
+					transform: translateX(0) scaleX(.8);
 				}
-				10%{
-					transform: translateX(8.333%) scaleX(1) ;
+				25%{
+					transform-origin: 0% 50%;
+					transform: translateX(0) scaleX(1) ;
 				}
-				
-				40%{
-					transform: translateX(33.33%) scaleX(1) ;
-				}
-				
 				50%{
-					transform: translateX(43.33%)  scaleX(.9);
+					
+					transform: translateX(16.16%)  scaleX(1);
 				}
-				60%{
-					transform: translateX(41.663%) scaleX(1) ;
-				}
-				90%{
-					transform: translateX(0%) scaleX(1) ;
+				75%{
+					transform-origin: 100% 50%;
+					transform: translateX(33.33%)  scaleX(1);
 				}
 				100%{
-					transform: translateX(0) scaleX(.9);
+					transform-origin: 100% 50%;
+					transform: translateX(33.33%)  scaleX(.8);
 				}
 				
 			  }
 
 		#central{
-			background: #fff;
+			background: #fff4f4;
 			width: 800px;
 			height: 400px;
 			margin:  20px auto;
 			display: flex;
 			justify-content: space-evenly;
+			border-radius: 15px;
 		}
 		#muñecoYpalabras{
-			background: #d05751;
 			width: 600px;
 			height: 400px;
 			margin: auto;
@@ -387,12 +390,12 @@ input[type="button"]:hover{
 			align-content: space-around;
 		}
 			#muñeco{
-				background: #d3d61b;
+				background: #fff4f4;
 				width: 600px;
 				height: 400px;
+				display: flex;
 			}
 		#vidasYerrores{
-			background: #d05751;
 			width: 150px;
 			height: 400px;
 			margin: auto;
@@ -400,142 +403,166 @@ input[type="button"]:hover{
 			align-content: space-around;
 		}
 			#vidas{
-				background: #d3d61b;
 				width: 150px;
-				height: 100px;
+				height: 110px;
 				margin: auto;
 				display: grid;
 				align-content: space-around;
 			}
+			.naranja{
+				background: #fff4f4;
+				border-radius: 15px;
+			}
 				#vidasTexto{
-					background: #06af15;
 					width: 150px;
 					height: 30px;
 					margin: auto;
 					text-align: center;
-					font-size: large;
+					font-family: 'Lato', Arial, Helvetica, sans-serif;
+					color:#1e6475;
+					font-weight: bold;
 					display: grid;
 					align-items: center;
-					font-size:20px;
+					font-size:2em;
 				}
 				#vidasNumero{
-					background: #06af15;
 					width: 55px;
 					height: 55px;
 					margin: auto;
-					border-radius: 50%;
+					border-radius: 15px;
 					text-align: center;
-					font-size: large;
+					font-family: 'Lato', Arial, Helvetica, sans-serif;
 					display: grid;
 					align-items: center;
-					font-size:40px;
+					font-size:2em;
+					animation-name: example;
+					animation-duration: 3.5s;
+					animation-iteration-count: infinite;
+					animation-timing-function: linear; 
+					animation-direction: alternate;
 				}
 			#errores{
-				background: #d3d61b;
 				width: 150px;
-				height:250px;
+				height:260px;
 				margin: auto;
 				display: grid;
 				align-content: space-around;
 			}
 				#errorestexto{
-					background: #06af15;
 					width: 150px;
-					height: 30px;
+					height: 40px;
 					margin: auto;
 					text-align: center;
-					font-size: large;
+					font-family: 'Lato', Arial, Helvetica, sans-serif;
+					color:#1e6475;
+					font-weight: bold;
 					display: grid;
 					align-items: center;
-					font-size:20px;
+					font-size:2em;
 				}
 				#erroresLetra{
-					background: #06af15;
+					border-radius:15px;
 					width: 55px;
-					height: 210px;
+					height: 200px;
 					margin: auto;
-					font-size: large;
+					font-size: 1.5em;
+					font-family: 'Lato', Arial, Helvetica, sans-serif;
 					display: grid;
 					align-items: center;
-					font-size:20px;
 					text-align: center;
 					letter-spacing: 5px;
 					writing-mode: vertical-rl;
     				text-orientation: upright;
+					animation-name: example;
+					animation-duration: 3.5s;
+					animation-iteration-count: infinite;
+					animation-timing-function: linear; 
+					animation-direction: alternate;
 					
 				}
-
-		#botones{
-			background: #fff;
-			width: 800px;
-			height: 80px;
-			margin:  20px auto;
-			display: flex;
-			justify-content: space-evenly;
-			align-items: center;
-		}
-			#botonEinput{
-				background: #fff;
-				width: auto;
+			.bEi{
+				width: 800px;
 				height: 80px;
 				display: flex;
 				justify-content: space-evenly;
 				align-items: center;
 			}
-			#botonAgregar{
-				width: 300px;
-				height: 50px;
-				border-radius: 20px ;
-			}
-			#botonJugarOtraVez{
-				width: 80px;
-				height: 80px;
-				border-radius: 50% ;
-			}
-			#inputTexto{
-				width: 300px;
-				height: 50px;
-				border-style: none;
-				border-radius: 20px ;
-			}
+			
 			.estiloBoton{
-				width: inherit;
+				width: 188px;
 				height: inherit;
 				border-radius: inherit;
-				background: #ff720b;
-				color: rgb(0, 0, 0);
+				background:#1e6475;
+				color: #fff4f4;
+				font-size: 2em;
 				border: none;
+				animation-name: example;
+				animation-duration: 3.5s;
+				animation-iteration-count: infinite;
+				animation-timing-function: linear; 
+				animation-direction: alternate;
+			}
+			.estiloBoton:active{
+				background:#00ffbfea;
+				color:#888888;
+				
+				
+			}
+			.botonAgregar{
+				background:#fff4f4 ;
+				width: 250px;
+				height: 50px;
+				border-radius: 20px ;
 			}
 			.ejs{
 				display: none;
 			}
-			.estiloBoton:active{
-				transform: scale(0.9);
-			}
 			#estiloInput{
-				width: 100%;
+				width: auto;
 				height: 50px;
 				margin-bottom: 3em;
 				border-radius: inherit;
-			
 			}
-		
+			#inputTexto{
+				width: auto;
+				height: 50px;
+				border-style: none;
+				border-radius: 20px ;
+			}
 		#rodapie{
-			background: #fff;
+			font-family: 'Lato', Arial, Helvetica, sans-serif;
+			font-weight: bold;
+			letter-spacing: 10px;
+			display:grid;
+			color: #56504a;
+			text-align: center;
+			align-items: center;
+			background: #fff4f4;
+			border-radius: 15px;
 			width: 800px;
-			height: 50px;
+			height: 40px;
 			margin:  20px auto;
 		}
+		/* .alert{
+			position: absolute;
+			margin: auto;
+			text-align: center;
+			vertical-align: middle;
+			background: #d05751;
+			width: 200px;
+			height: 150px;
+			border-radius: 15px;
+		}
+		#aceptar{
+			width: auto;
+			height: auto;
+			
+		} */
 
-		.espaciar{
+		/* .espaciar{
 			letter-spacing:100px;
 			color: #06af15;
-		}
-
-
-
-		
-
+		} */
 
 /* ==========================================================================
 	Estilos para un espect ratio de 8:5

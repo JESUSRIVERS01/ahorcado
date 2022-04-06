@@ -68,7 +68,7 @@
 		<div id="contenedor">
 			<div id="tituloYMenu">
 				<div id="titulo">
-					JUEGO DEL AHORCADO
+					Juego del ahorcado
 				</div>
 			</div>	
 			<div id="central">
@@ -76,12 +76,21 @@
 					<div id="muñeco">
 						<canvas id="canvas" width="600" height="400">
 						</canvas>
+						<div id="alerta">
+							<span id="spann">
+
+							</span>
+							<div id="botonAceptar">
+								<button  id="aceptar" class="ejs">aceptar</button>
+							</div>
+						</div>
+
 					</div>
 				</div>
 				<div id="vidasYerrores">
 					<div id="vidas">
 						<div id="vidasTexto">
-							total de vidas
+							
 						</div>
 						<div id="vidasNumero">
 							
@@ -89,7 +98,7 @@
 					</div>
 					<div id="errores">
 						<div id="errorestexto">
-							letra incorrecta
+							
 						</div>
 						<div id="erroresLetra">
 							
@@ -98,21 +107,22 @@
 				</div>
 
 			</div>
-			<div id="botones">
-				<div id="botonEinput">
-					
+			<div id="botones" class="bEi">
+				<div id="botonEinput" class="bEi">
 					<div id="inputTexto">
-						<input type="text"  id="estiloInput"  placeholder="agregar nueva palabra" >
+						<input type="text"  class="ejs" id="estiloInput" placeholder="agregar nueva palabra" maxlength="10">
 					</div>
-					<div id="botonAgregar" >
-						<button id="botonjugar" class="estiloBoton" >jugar</button>
+					<div class="botonAgregar" >
+						<button id="botonDos" class="estiloBoton" >+ palabra</button>
 					</div>
-					
+					<div class="botonAgregar" >
+						<button id="botonUno" class="estiloBoton" >jugar</button>
+					</div>
 				</div>
 				
 			</div>
 			<div id="rodapie">
-
+				 Jesús Omar Rivera Trejo
 			</div>
 		</div>
 	
