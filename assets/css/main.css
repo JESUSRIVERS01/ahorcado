@@ -523,9 +523,9 @@ input[type="button"]:hover{
 			}
 			#inputMovile{
 				position: absolute;
-				opacity: 0;
-				top: -10vh;
-				
+				width: 100%;
+				height: 400px;
+				opacity: 0;				
 			}
 		#rodapie{
 			font-family: 'Lato', Arial, Helvetica, sans-serif;
@@ -701,6 +701,11 @@ input[type="button"]:hover{
 	canvas#canvas {
 		width: 100%;
 		height: calc((2/3) * 90vw);
+	}
+	input#inputMovile {
+		position: absolute;
+		height: calc((2/3) * 90vw);
+		top: 0;
 	}
 }
 

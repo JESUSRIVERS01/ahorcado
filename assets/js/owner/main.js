@@ -2,7 +2,7 @@ var botonjugar=document.getElementById("botonUno");
 var botonDos=document.getElementById("botonDos");
 var contenedor=document.getElementById("contenedor")
 var titulo=document.getElementById("tituloYMenu");
-var palabraNueva=document.querySelector("#estiloInput");
+var palabraNueva=document.getElementById("estiloInput");
 var botEinp=document.getElementById("botones");
 var cajaInput=document.getElementById("inputTexto");
 var errorL=document.getElementById("errorestexto");
@@ -195,7 +195,8 @@ var cajaTres="";
 			var minusculas=e.key.toLowerCase()
 			var nreguex=new RegExp(minusculas);
 			if(nreguex.test(texto)){
-				if (!nreguex.test(cajaTres)) {	
+				if (!nreguex.test(cajaTres)) {
+					cajaTres=minusculas+e.key	
 					textoArray.forEach(function(el,p) { 
 						if (el==minusculas) {	
 							posiciones=puntoPartida+((linea+espacio)*p);
@@ -257,7 +258,8 @@ var cajaTres="";
 							
 		}
 	};
-	function iniciarJuego(){	
+	function iniciarJuego(){
+		inputMovil.value="";	
 		inputMovil.focus();
 		cajaInput.classList.add("ejs");
 		document.getElementById("vidas").classList.add("naranja");
@@ -308,15 +310,8 @@ var cajaTres="";
 				palabraNueva.value="";
 			}
 		}
-		else{
-			// aceptar.classList.remove("ejs");
-
-		}
-		
 	});
 	botonjugar.addEventListener("click",iniciarJuego);
 	cajaInput.classList.add("ejs");
-	// mensaje.classList.add("ejs");
-	
 	var letraUsuario= inputMovil.value;
 	console.log(letraUsuario.toLowerCase());
