@@ -278,7 +278,7 @@ input[type="button"]:hover{
 #fondo_body{
 	background: #11ad8c url() no-repeat center bottom;
 	background-size: cover;
-	overflow: hidden;
+	
 }
 
 #container0{
@@ -309,6 +309,8 @@ input[type="button"]:hover{
 		width: 800px;
 		margin: auto;
 		align-items: center;
+		display: flex;
+		flex-direction: column;
 	}	
 		div.ejsa{
 		height: 90%;
@@ -359,7 +361,6 @@ input[type="button"]:hover{
 					transform: translateX(0) scaleX(1) ;
 				}
 				50%{
-					
 					transform: translateX(16.16%)  scaleX(1);
 				}
 				75%{
@@ -372,7 +373,6 @@ input[type="button"]:hover{
 				}
 				
 			  }
-
 		#central{
 			background: #fff4f4;
 			width: 800px;
@@ -390,12 +390,13 @@ input[type="button"]:hover{
 			align-content: space-around;
 		}
 			#muñeco{
-				background: #fff4f4;
+				
 				width: 600px;
 				height: 400px;
 				display: flex;
 			}
 		#vidasYerrores{
+			
 			width: 150px;
 			height: 400px;
 			margin: auto;
@@ -482,7 +483,6 @@ input[type="button"]:hover{
 				}
 			.bEi{
 				width: 800px;
-				height: 80px;
 				display: flex;
 				justify-content: space-evenly;
 				align-items: center;
@@ -543,26 +543,7 @@ input[type="button"]:hover{
 			height: 40px;
 			margin:  20px auto;
 		}
-		/* .alert{
-			position: absolute;
-			margin: auto;
-			text-align: center;
-			vertical-align: middle;
-			background: #d05751;
-			width: 200px;
-			height: 150px;
-			border-radius: 15px;
-		}
-		#aceptar{
-			width: auto;
-			height: auto;
-			
-		} */
-
-		/* .espaciar{
-			letter-spacing:100px;
-			color: #06af15;
-		} */
+	
 
 /* ==========================================================================
 	Estilos para un espect ratio de 8:5
@@ -624,15 +605,104 @@ input[type="button"]:hover{
 /* ==========================================================================
 	Media Queries
 ========================================================================== */
-@media only screen and (max-width: 846px) {
-	:root{
-		--margenAncho: 90%;
-		--margenPadding: 2em;
+@media only screen and (max-width: 800px) {
+	div#contenedor {
+		width: 90vw;
+		height: auto;
 	}
-	h1 {
-	    font-size: 5vw;
+
+	div#tituloYMenu {
+		width: 100%;
+	}
+
+	div#titulo {
+		font-size: 5vw;
+	}
+	div#central {
+		width: 100%;
+		height: calc((2/3) * 90vw);
+		display: inline-block;
+	}
+	div#muñecoYpalabras {
+		width: 100%;
+		height: auto;
+	}
+	div#muñeco {
+		width: 100%;
+		height: auto;
+	}
+	div#vidasYerrores {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		width: 100%;
+		height: auto;
+		margin: 15px 0 ;
+	}
+	div#vidas {
+		width: 30%;
+		height: 50px;
+		display: flex;
 	}
 	
+	div#vidasTexto {
+		width: 50%;
+		font-size: 5vw;
+	}
+	div#vidasNumero {
+		width: 50%;
+		height: 80%;
+		animation: none;
+		border-radius: 10px;
+	}
+	div#errores {
+		width: 65%;
+		height: 50px;
+		display: flex;
+	}
+	div#errorestexto {
+		width: 30%;
+		font-size: 4.5vw;
+	}
+	div#erroresLetra {
+		width: 60%;
+		height: 80%;
+		animation: none;
+		writing-mode: unset;
+    	writing-mode: unset;
+		border-radius: 10px;
+	}
+	div#botones {
+		width: 100%;
+		margin: 15% 0;
+	}
+	div#botonEinput {
+		width: 100%;
+		display: flex;
+		flex-direction: column-reverse;
+		align-items: center;
+	}
+	.botonAgregar {
+		width: 100%;
+		margin: 5px 0;
+	}
+	button#botonDos {
+		width: 75%;
+		font-size: 4vw;
+	}
+	button#botonUno {
+		width: 75%;
+		font-size: 4vw;
+	}
+	div#rodapie {
+		width: 100%;
+		font-size: 3vw;
+		
+	}
+	canvas#canvas {
+		width: 100%;
+		height: calc((2/3) * 90vw);
+	}
 }
 
 
