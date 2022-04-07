@@ -260,7 +260,7 @@ var cajaTres="";
 	};
 	function iniciarJuego(){
 		inputMovil.value="";	
-		inputMovil.focus();
+		inputMovil.focus();	
 		cajaInput.classList.add("ejs");
 		document.getElementById("vidas").classList.add("naranja");
 		document.getElementById("errores").classList.add("naranja");
@@ -314,3 +314,15 @@ var cajaTres="";
 	cajaInput.classList.add("ejs");
 	var letraUsuario= inputMovil.value;
 	console.log(letraUsuario.toLowerCase());
+	
+
+	inputMovil.addEventListener("focus",function(e){
+
+		if (e){
+			console.log("tengo el foco");
+		}
+		else{
+			console.log("perdio el foco");
+		}
+		
+	})
