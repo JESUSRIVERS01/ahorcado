@@ -302,7 +302,6 @@ var cajaTres="";
 					cajaInput.classList.add("ejs");
 				}
 				else{
-					// aceptar.classList.remove("ejs");
 					palabraNueva.value="";
 				}
 			}	
