@@ -308,9 +308,10 @@ input[type="button"]:hover{
 	#contenedor{
 		width: 800px;
 		margin: auto;
+		min-height: 100vh;
 		align-items: center;
 		display: flex;
-		flex-direction: column;
+		flex-wrap: wrap;
 	}	
 		div.ejsa{
 		height: 90%;
@@ -321,8 +322,8 @@ input[type="button"]:hover{
 			border-radius: 15px;
 			position: relative;
 			width: 800px;
-			height: 40px;
-			margin:auto;
+			
+			margin:10px 0 ;
 			display: flex;
     		align-items: center;
 		}
@@ -390,22 +391,18 @@ input[type="button"]:hover{
 			align-content: space-around;
 		}
 			#muñeco{
-				
 				width: 600px;
 				height: 400px;
 				display: flex;
 			}
 		#vidasYerrores{
-			
 			width: 150px;
-			height: 400px;
 			margin: auto;
 			display: grid;
 			align-content: space-around;
 		}
 			#vidas{
 				width: 150px;
-				height: 110px;
 				margin: auto;
 				display: grid;
 				align-content: space-around;
@@ -416,7 +413,6 @@ input[type="button"]:hover{
 			}
 				#vidasTexto{
 					width: 150px;
-					height: 30px;
 					margin: auto;
 					text-align: center;
 					font-family: 'Lato', Arial, Helvetica, sans-serif;
@@ -424,18 +420,17 @@ input[type="button"]:hover{
 					font-weight: bold;
 					display: grid;
 					align-items: center;
-					font-size:2em;
+					font-size:3vw;
 				}
 				#vidasNumero{
 					width: 55px;
-					height: 55px;
 					margin: auto;
 					border-radius: 15px;
 					text-align: center;
 					font-family: 'Lato', Arial, Helvetica, sans-serif;
 					display: grid;
 					align-items: center;
-					font-size:2em;
+					font-size:3vw;
 					animation-name: example;
 					animation-duration: 3.5s;
 					animation-iteration-count: infinite;
@@ -444,14 +439,12 @@ input[type="button"]:hover{
 				}
 			#errores{
 				width: 150px;
-				height:260px;
 				margin: auto;
 				display: grid;
 				align-content: space-around;
 			}
 				#errorestexto{
 					width: 150px;
-					height: 40px;
 					margin: auto;
 					text-align: center;
 					font-family: 'Lato', Arial, Helvetica, sans-serif;
@@ -459,14 +452,13 @@ input[type="button"]:hover{
 					font-weight: bold;
 					display: grid;
 					align-items: center;
-					font-size:2em;
+					font-size:3vw;
 				}
 				#erroresLetra{
 					border-radius:15px;
 					width: 55px;
-					height: 200px;
 					margin: auto;
-					font-size: 1.5em;
+					font-size:2vw;
 					font-family: 'Lato', Arial, Helvetica, sans-serif;
 					display: grid;
 					align-items: center;
@@ -540,7 +532,7 @@ input[type="button"]:hover{
 			background: #fff4f4;
 			border-radius: 15px;
 			width: 800px;
-			height: 40px;
+			align-self: flex-end;
 			margin:  20px auto;
 		}
 	
@@ -636,45 +628,46 @@ input[type="button"]:hover{
 		justify-content: space-around;
 		align-items: center;
 		width: 100%;
-		height: auto;
 		margin: 15px 0 ;
 	}
 	div#vidas {
 		width: 30%;
-		height: 50px;
 		display: flex;
+		height: 5vh;
 	}
 	
 	div#vidasTexto {
 		width: 50%;
-		font-size: 5vw;
+		font-size: 4vw;
 	}
 	div#vidasNumero {
 		width: 50%;
-		height: 80%;
 		animation: none;
 		border-radius: 10px;
+		font-size: 6vw;
+		
+
 	}
 	div#errores {
 		width: 65%;
-		height: 50px;
 		display: flex;
+		height: 5vh;
 	}
 	div#errorestexto {
 		width: 30%;
-		font-size: 4.5vw;
+		font-size: 4vw;
 	}
 	div#erroresLetra {
 		width: 60%;
-		height: 80%;
 		animation: none;
 		writing-mode: unset;
     	writing-mode: unset;
 		border-radius: 10px;
+		font-size: 6vw;
 	}
 	div#botones {
 		width: 100%;
-		margin: 15% 0;
+		margin: 20% 0;
 	}
 	div#botonEinput {
 		width: 100%;

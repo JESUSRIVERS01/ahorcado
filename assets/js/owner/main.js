@@ -2,7 +2,7 @@ var botonjugar=document.getElementById("botonUno");
 var botonDos=document.getElementById("botonDos");
 var contenedor=document.getElementById("contenedor")
 var titulo=document.getElementById("tituloYMenu");
-var palabraNueva=document.querySelector(".estiloInput");
+var palabraNueva=document.querySelector("#estiloInput");
 var botEinp=document.getElementById("botones");
 var cajaInput=document.getElementById("inputTexto");
 var errorL=document.getElementById("errorestexto");
@@ -262,7 +262,7 @@ var cajaTres="";
 		document.getElementById("errores").classList.add("naranja");
 		window.addEventListener("keyup",compararEntrada)
 		errorL.textContent="Errores"		
-		nVidas.textContent="vidas"																
+		nVidas.textContent="Vidas"																
 		limpiar();
 		var azar = palabrasDelJuego[Math.floor(Math.random() * palabrasDelJuego.length)];
 		texto = azar;
@@ -284,9 +284,10 @@ var cajaTres="";
 	botonDos.addEventListener("click",function(e){
 		botonDos.textContent="Agregar"
 		cajaInput.classList.remove("ejs");
-		if (palabraNueva.value=="") {
+		if (palabraNueva.value== "") {
 			return
 		}
+		
 		if(regex.test(palabraNueva.value)){
 			var palabra=palabraNueva.value
 			var nrp=new RegExp(palabra)
@@ -307,7 +308,7 @@ var cajaTres="";
 
 		}
 		
-	})
+	});
 	botonjugar.addEventListener("click",iniciarJuego);
 	cajaInput.classList.add("ejs");
 	// mensaje.classList.add("ejs");
