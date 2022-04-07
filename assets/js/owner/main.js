@@ -16,7 +16,7 @@ var inputMovil=document.getElementById("inputMovile")
 var titulo=document.getElementById("titulo");
 var canvas=document.getElementById("canvas");
 var ctx = canvas.getContext('2d');
-var regex=/[a-zñ]/;
+var regex=/[a-z]/i;
 var regNumerico=/\b[6-8]\d{1}\b|90/;
 var regexCuerpo=/[0-6]/;
 var texto="";
@@ -190,21 +190,20 @@ var cajaTres="";
 		erroresLetra.classList.add("azul");
 		base();
 	}
-	var compararEntrada=(e)=>{			
+	var compararEntrada=(e)=>{		
 		if(regex.test(e.key)){
-			var nreguex=new RegExp(e.key);
+			var minusculas=e.key.toLowerCase()
+			var nreguex=new RegExp(minusculas);
 			if(nreguex.test(texto)){
-					
-				if (!nreguex.test(cajaTres)) {
-					cajaTres=e.key+cajaTres
+				if (!nreguex.test(cajaTres)) {	
 					textoArray.forEach(function(el,p) { 
-						if (el==e.key) {	
+						if (el==minusculas) {	
 							posiciones=puntoPartida+((linea+espacio)*p);
 							ctx.beginPath();
 							ctx.font="bold 45px arial"; 
 							ctx.textAlign="center";
 							ctx.textBaseline = "alphabetic";
-							ctx.fillText(e.key,posiciones+(linea/2),350); 
+							ctx.fillText(minusculas,posiciones+(linea/2),350); 
 							ctx.stroke();
 							if(/[1-6]/.test(numVidas)){
 								cajaDos=p+cajaDos;
@@ -224,16 +223,16 @@ var cajaTres="";
 									perdiste(a,b,c,d,e,f);
 								}
 							}
-
 						}
 					})
 				}	
 			}
 			else{
 				if(regNumerico.test(e.keyCode)){
-					cajaLetra=new RegExp(e.key);	
+					var cambia=e.key.toLowerCase()
+					cajaLetra=new RegExp(cambia);
 					if (!cajaLetra.test(errores)) {
-						errores=e.key+errores;
+						errores=cambia+errores;
 						erroresLetra.textContent=errores;
 						var resta = numVidas-suma;
 						numVidas=resta-uno
@@ -259,7 +258,8 @@ var cajaTres="";
 		}
 	};
 	function iniciarJuego(){	
-		
+		inputMovil.focus();
+		cajaInput.classList.add("ejs");
 		document.getElementById("vidas").classList.add("naranja");
 		document.getElementById("errores").classList.add("naranja");
 		inputMovil.addEventListener("keyup",compararEntrada)
@@ -282,26 +282,29 @@ var cajaTres="";
 			ctx.stroke();		
 		})
 	}
-	
 	botonDos.addEventListener("click",function(e){
 		botonDos.textContent="Agregar"
 		cajaInput.classList.remove("ejs");
+		palabraNueva.focus();	
 		if (palabraNueva.value== "") {
 			return
-		}
-		
+		}																
 		if(regex.test(palabraNueva.value)){
 			var palabra=palabraNueva.value
 			var nrp=new RegExp(palabra)
-			if(!nrp.test(palabrasDelJuego)){
-				palabrasDelJuego.push(palabra);
-				console.log(palabra);
-				console.log(palabrasDelJuego);
-				palabraNueva.value="";
-				cajaInput.classList.add("ejs");
-			}
+			if(!/\s|\W|\d|_/.test(palabra)){
+				if(!nrp.test(palabrasDelJuego)){
+					palabrasDelJuego.push(palabra.toLowerCase());
+					console.log(palabrasDelJuego);
+					palabraNueva.value="";
+					cajaInput.classList.add("ejs");
+				}
+				else{
+					// aceptar.classList.remove("ejs");
+					palabraNueva.value="";
+				}
+			}	
 			else{
-				// aceptar.classList.remove("ejs");
 				palabraNueva.value="";
 			}
 		}
@@ -315,4 +318,5 @@ var cajaTres="";
 	cajaInput.classList.add("ejs");
 	// mensaje.classList.add("ejs");
 	
-	
+	var letraUsuario= inputMovil.value;
+	console.log(letraUsuario.toLowerCase());
