@@ -12,6 +12,7 @@ var aceptar=document.getElementById("aceptar");
 var palabrasDelJuego=["hola","adios","omar","ricardo","caleb","pera","elefante","tornillo","qwerty","zorro","arbol","perro","manzana","platano","aguacate","clavo","sofa","refrigerar","gato"];
 var contador=document.getElementById("vidasNumero");
 var erroresLetra=document.getElementById("erroresLetra");
+var inputMovil=document.getElementById("inputMovile")
 var titulo=document.getElementById("titulo");
 var canvas=document.getElementById("canvas");
 var ctx = canvas.getContext('2d');
@@ -157,7 +158,7 @@ var cajaTres="";
 		numero();
 	}
 	var perdiste = (a,b,c,d,e,f)=>{
-		window.removeEventListener("keyup",compararEntrada);
+		inputMovil.removeEventListener("keyup",compararEntrada);
 		uno=0;
 		botEinp.classList.remove("ejs");
 		ctx.font = '40px calibri';
@@ -254,13 +255,14 @@ var cajaTres="";
 					}
 				}
 			}
-
+							
 		}
 	};
 	function iniciarJuego(){	
+		
 		document.getElementById("vidas").classList.add("naranja");
 		document.getElementById("errores").classList.add("naranja");
-		window.addEventListener("keyup",compararEntrada)
+		inputMovil.addEventListener("keyup",compararEntrada)
 		errorL.textContent="Errores"		
 		nVidas.textContent="Vidas"																
 		limpiar();
@@ -312,4 +314,5 @@ var cajaTres="";
 	botonjugar.addEventListener("click",iniciarJuego);
 	cajaInput.classList.add("ejs");
 	// mensaje.classList.add("ejs");
+	
 	
