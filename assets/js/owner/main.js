@@ -159,6 +159,7 @@ var cajaTres="";
 	}
 	var perdiste = (a,b,c,d,e,f)=>{
 		inputMovil.removeEventListener("keyup",compararEntrada);
+		inputMovil.value="";
 		uno=0;
 		botEinp.classList.remove("ejs");
 		ctx.font = '40px calibri';
@@ -177,6 +178,7 @@ var cajaTres="";
 		});
 	}
 	var limpiar = ()=>{	
+		inputMovil.value="";
 		uno=1;							
 		contador.textContent="";
 		errores="";
@@ -190,13 +192,24 @@ var cajaTres="";
 		erroresLetra.classList.add("azul");
 		base();
 	}
-	var compararEntrada=(e)=>{		
-		if(regex.test(e.key)){
-			var minusculas=e.key.toLowerCase()
+	var cajaNueva=""
+	if (regex.test(inputMovil.value)) {
+		var letraInput=inputMovil.value
+		
+	}
+	var letraInput=""
+	
+	var compararEntrada=(e)=>{
+		letraInput=inputMovil.value
+		inputMovil.value="";
+		if(regex.test(letraInput)){
+			var minusculas=letraInput.toLowerCase();
+
 			var nreguex=new RegExp(minusculas);
+			inputMovil.value="";
 			if(nreguex.test(texto)){
 				if (!nreguex.test(cajaTres)) {
-					cajaTres=minusculas+e.key	
+					cajaTres=minusculas+letraInput;
 					textoArray.forEach(function(el,p) { 
 						if (el==minusculas) {	
 							posiciones=puntoPartida+((linea+espacio)*p);
@@ -229,31 +242,37 @@ var cajaTres="";
 				}	
 			}
 			else{
-				if(regNumerico.test(e.keyCode)){
-					var cambia=e.key.toLowerCase()
-					cajaLetra=new RegExp(cambia);
-					if (!cajaLetra.test(errores)) {
-						errores=cambia+errores;
-						erroresLetra.textContent=errores;
-						var resta = numVidas-suma;
-						numVidas=resta-uno
-						contador.textContent=numVidas;	
-						if (regexCuerpo.test(numVidas)) {
-							var numero=cuerpo[numVidas];
-							parteCuerpo(numero);
-							if (numVidas==0) {
-								a=" ups! perdiste"
-								b=300
-								c=40
-								d="la palabra correcta es: "
-								e=300
-								f=300
-								cabezatriste();
-								perdiste(a,b,c,d,e,f);
-							}	
+					if(!/\s|\W|\d|_/.test(minusculas)){
+						if (!nreguex.test(errores)) {
+							errores=minusculas+errores;
+							erroresLetra.textContent=errores;
+							var resta = numVidas-suma;
+							numVidas=resta-uno
+							contador.textContent=numVidas;	
+							if (regexCuerpo.test(numVidas)) {
+								var numero=cuerpo[numVidas];
+								parteCuerpo(numero);
+								if (numVidas==0) {
+									a=" ups! perdiste"
+									b=300
+									c=40
+									d="la palabra correcta es: "
+									e=300
+									f=300
+									cabezatriste();
+									perdiste(a,b,c,d,e,f);
+								}	
+							}
 						}
+						
+					}else{
+						inputMovil.value="";
 					}
-				}
+				
+				
+				
+				
+				
 			}
 							
 		}
@@ -312,17 +331,5 @@ var cajaTres="";
 	});
 	botonjugar.addEventListener("click",iniciarJuego);
 	cajaInput.classList.add("ejs");
-	var letraUsuario= inputMovil.value;
-	console.log(letraUsuario.toLowerCase());
 	
-
-	inputMovil.addEventListener("focus",function(e){
-
-		if (e){
-			console.log("tengo el foco");
-		}
-		else{
-			console.log("perdio el foco");
-		}
-		
-	})
+	
