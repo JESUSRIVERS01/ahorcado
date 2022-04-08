@@ -18,7 +18,7 @@ var titulo=document.getElementById("titulo");
 var canvas=document.getElementById("canvas");
 var ctx = canvas.getContext('2d');
 var regex=/[a-z]/i;
-var regNumerico=/\b[6-8]\d{1}\b|90/;
+// var regNumerico=/\b[6-8]\d{1}\b|90/;
 var regexCuerpo=/[0-6]/;
 var texto="";
 var textoArray=[];
@@ -203,14 +203,16 @@ var cajaTres="";
 		var letraInput=inputMovil.value
 		
 	}
-	var letraInput=""
+	var letraInput="";
 	var compararEntrada=(e)=>{
-		letraInput=inputMovil.value
+		letraInput=inputMovil.value;
+		if (letraInput.value== "") {
+			return
+		}
 		inputMovil.value="";
 		if(regex.test(letraInput)){
 			var minusculas=letraInput.toLowerCase();
 			var nreguex=new RegExp(minusculas);
-			inputMovil.value="";
 			if(nreguex.test(texto)){
 				if (!nreguex.test(cajaTres)) {
 					cajaTres=minusculas+letraInput;
@@ -246,44 +248,35 @@ var cajaTres="";
 				}	
 			}
 			else{
-					if(!/\s|\W|\d|_/.test(minusculas)){
-						if (!nreguex.test(errores)) {
-							errores=minusculas+errores;
-							erroresLetra.textContent=errores;
-							var resta = numVidas-suma;
-							numVidas=resta-uno
-							contador.textContent=numVidas;	
-							if (regexCuerpo.test(numVidas)) {
-								var numero=cuerpo[numVidas];
-								parteCuerpo(numero);
-								if (numVidas==0) {
-									a=" ups! perdiste"
-									b=300
-									c=40
-									d="la palabra correcta es: "
-									e=300
-									f=300
-									cabezatriste();
-									perdiste(a,b,c,d,e,f);
-									
-								}	
-							}
+				if(!/\s|\W|\d|_/.test(minusculas)){
+					if (!nreguex.test(errores)) {
+						errores=minusculas+errores;
+						erroresLetra.textContent=errores;
+						var resta = numVidas-suma;
+						numVidas=resta-uno
+						contador.textContent=numVidas;	
+						if (regexCuerpo.test(numVidas)) {
+							var numero=cuerpo[numVidas];
+							parteCuerpo(numero);
+							if (numVidas==0) {
+								a=" ups! perdiste"
+								b=300
+								c=40
+								d="la palabra correcta es: "
+								e=300
+								f=300
+								cabezatriste();
+								perdiste(a,b,c,d,e,f);
+							}	
 						}
-						
-					}else{
-						inputMovil.value="";
 					}
-				
-				
-				
-				
-				
-			}
-							
+				}else{
+					inputMovil.value="";
+				}
+			}	
 		}
 	};
-	function iniciarJuego(){
-		inputMovil.value="";	
+	function iniciarJuego(){ 	
 		inputMovil.focus();	
 		cajaInput.classList.add("ejs");
 		document.getElementById("vidas").classList.add("naranja");

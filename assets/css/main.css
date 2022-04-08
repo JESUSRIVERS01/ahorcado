@@ -628,6 +628,7 @@ input[type="button"]:hover{
 		height: calc((2/3) * 90vw);
 		flex-wrap: wrap;
    		align-self: flex-start;
+		top: -25px;
 	}
 	div#muñecoYpalabras {
 		width: 100%;
