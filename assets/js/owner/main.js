@@ -5,6 +5,7 @@ var titulo=document.getElementById("tituloYMenu");
 var palabraNueva=document.getElementById("estiloInput");
 var botEinp=document.getElementById("botones");
 var cajaInput=document.getElementById("inputTexto");
+var touch= document.getElementById("form")
 var errorL=document.getElementById("errorestexto");
 var nVidas=document.getElementById("vidasTexto");
 var mensaje=document.getElementById("spann");
@@ -157,9 +158,14 @@ var cajaTres="";
 	function parteCuerpo (numero) {
 		numero();
 	}
+	var enfocar=()=>{
+		inputMovil.focus();
+	}
+	touch.addEventListener("click",enfocar)
 	var perdiste = (a,b,c,d,e,f)=>{
 		inputMovil.removeEventListener("keyup",compararEntrada);
 		inputMovil.value="";
+		inputMovil.blur();
 		uno=0;
 		botEinp.classList.remove("ejs");
 		ctx.font = '40px calibri';
@@ -198,13 +204,11 @@ var cajaTres="";
 		
 	}
 	var letraInput=""
-	
 	var compararEntrada=(e)=>{
 		letraInput=inputMovil.value
 		inputMovil.value="";
 		if(regex.test(letraInput)){
 			var minusculas=letraInput.toLowerCase();
-
 			var nreguex=new RegExp(minusculas);
 			inputMovil.value="";
 			if(nreguex.test(texto)){
@@ -261,6 +265,7 @@ var cajaTres="";
 									f=300
 									cabezatriste();
 									perdiste(a,b,c,d,e,f);
+									
 								}	
 							}
 						}
