@@ -521,18 +521,20 @@ input[type="button"]:hover{
 				border-style: none;
 				border-radius: 20px ;
 			}
-			#inputMovile{
-				position: absolute;
-				opacity: 0;  
-				top: -50px;
-				
-			}
+			
 			#form{
+				
 				position: absolute; 
 				width: 100%;
 				height: 400px;  
 				top: 0;
-			
+			}
+			#inputMovile{
+				opacity: 0;
+				position: absolute; 
+				width: 100%;
+				height: 400px;  
+				
 			}
 		#rodapie{
 			font-family: 'Lato', Arial, Helvetica, sans-serif;

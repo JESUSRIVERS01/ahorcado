@@ -1,25 +1,19 @@
 var botonjugar=document.getElementById("botonUno");
 var botonDos=document.getElementById("botonDos");
-var contenedor=document.getElementById("contenedor")
-var titulo=document.getElementById("tituloYMenu");
 var palabraNueva=document.getElementById("estiloInput");
 var botEinp=document.getElementById("botones");
 var cajaInput=document.getElementById("inputTexto");
 var touch= document.getElementById("form")
 var errorL=document.getElementById("errorestexto");
 var nVidas=document.getElementById("vidasTexto");
-var mensaje=document.getElementById("spann");
-var aceptar=document.getElementById("aceptar");
 var palabrasDelJuego=["hola","adios","omar","ricardo","caleb","pera","elefante","tornillo","qwerty","zorro","arbol","perro","manzana","platano","aguacate","clavo","sofa","refrigerar","gato"];
 var contador=document.getElementById("vidasNumero");
 var erroresLetra=document.getElementById("erroresLetra");
 var inputMovil=document.getElementById("inputMovile")
-var titulo=document.getElementById("titulo");
+cajaInput.classList.add("ejs");
 var canvas=document.getElementById("canvas");
 var ctx = canvas.getContext('2d');
 var regex=/[a-z]/i;
-// var regNumerico=/\b[6-8]\d{1}\b|90/;
-var regexCuerpo=/[0-6]/;
 var texto="";
 var textoArray=[];
 var linea = 40;        
@@ -27,15 +21,12 @@ var espacio = 20;
 var areaTotal=0;
 var puntoPartida=0;
 var errores="";
-var suma="";
-var numVidas="";
-var uno = 1;
+var numVidas=0;
 var posiciones="";
 var letra="";
-var cajaLetra="";
+var cajaUno="";
 var cajaDos="";
-var cajaTres="";
-   var base = ()=>{
+ var base = ()=>{
 	ctx.fillRect(0,260,600,2);
 	ctx.beginPath();
 	ctx.moveTo(150, 230); 
@@ -64,7 +55,7 @@ var cajaTres="";
 	ctx.lineTo(450,50);
 	ctx.stroke();
 	}
-	var cabeza = () => {
+var cabeza = () => {
 		ctx.beginPath();
 		ctx.arc(300, 95, 25, 0, Math.PI * 2, true); // Outer circle
 		ctx.moveTo(310, 110);
@@ -83,7 +74,7 @@ var cajaTres="";
 		ctx.lineTo(300,70);
 		ctx.stroke();
 	}
-	var cabezaFeliz=()=>{
+var ganador=()=>{
 		ctx.clearRect(0, 0, 600,262);
 		ctx.fillRect(150,240,300,2);
 		ctx.beginPath();
@@ -99,8 +90,13 @@ var cajaTres="";
 		ctx.arc(307, 85, 2, 0, Math.PI * 2, true);  // Right eye
 		ctx.fill();
 		ctx.stroke();
+		torso()
+		brazoDerecho()
+		brazoIzquierdo()
+		piernaDerecha()
+		piernaIzquierda()
 	}
-	var cabezatriste=()=>{
+var perdedor=()=>{
 		ctx.clearRect(0, 0, 600,262);
 		base();
 		ctx.beginPath();
@@ -122,212 +118,150 @@ var cajaTres="";
 		ctx.fill();
 		ctx.stroke();
 	}
-
-	var torso = ()=> {
+var torso = ()=> {
 		ctx.beginPath();
 		ctx.moveTo(300, 120);
 		ctx.lineTo(300,200);
 		ctx.stroke();
 	}
-	var brazoIzquierdo = ()=> {
+var brazoIzquierdo = ()=> {
 		ctx.beginPath();
 		ctx.moveTo(300, 130);
 		ctx.lineTo(250,120);
 		ctx.stroke();
 	}
-	var brazoDerecho=()=> {
+var brazoDerecho=()=> {
 		ctx.beginPath();
 		ctx.moveTo(300, 130);
 		ctx.lineTo(350,120);
 		ctx.stroke();
 	}
-	var piernaIzquierda=()=> {
+var piernaIzquierda=()=> {
 		ctx.beginPath();
 		ctx.moveTo(300, 200);
 		ctx.lineTo(250,240);
 		ctx.stroke();
 	}
-	var piernaDerecha=()=> {
+var piernaDerecha=()=> {
 		ctx.beginPath();
 		ctx.moveTo(300, 200);
 		ctx.lineTo(350,240);
 		ctx.stroke();
 	}
-	var cuerpo= [piernaIzquierda,piernaDerecha,brazoIzquierdo,brazoDerecho,torso,cabeza];
-
-	function parteCuerpo (numero) {
-		numero();
-	}
-	var enfocar=()=>{
-		inputMovil.focus();
-	}
-	touch.addEventListener("click",enfocar)
-	var perdiste = (a,b,c,d,e,f)=>{
-		inputMovil.removeEventListener("keyup",compararEntrada);
-		inputMovil.value="";
-		inputMovil.blur();
-		uno=0;
-		botEinp.classList.remove("ejs");
-		ctx.font = '40px calibri';
-		ctx.fillStyle = 'Black';
-		ctx.textAlign="center";
-		ctx.fillText(a, b, c);
-		ctx.fillText(d, e, f);
-		textoArray.forEach(function(le,lp){
-			posiciones=puntoPartida+((linea+espacio)*lp);
-			ctx.beginPath();
-			ctx.font="bold 45px arial"; 
-			ctx.textAlign="center";
-			ctx.textBaseline = "alphabetic";
-			ctx.fillText(le,(posiciones+(linea/2)),350); 
-			ctx.stroke();
-		});
-	}
-	var limpiar = ()=>{	
-		inputMovil.value="";
-		uno=1;							
-		contador.textContent="";
-		errores="";
-		cajaDos="";
-		cajaTres="";
-		erroresLetra.textContent="";
-		ctx.clearRect(0, 0, canvas.width, canvas.height);
-		botEinp.classList.add("ejs");
-		contenedor.classList.add("ejsa");
-		contador.classList.add("azul");
-		erroresLetra.classList.add("azul");
-		base();
-	}
-	var cajaNueva=""
-	if (regex.test(inputMovil.value)) {
-		var letraInput=inputMovil.value
-		
-	}
-	var letraInput="";
-	var compararEntrada=(e)=>{
-		letraInput=inputMovil.value;
-		if (letraInput.value== "") {
-			return
+var cuerpo= [piernaIzquierda ,piernaDerecha,brazoIzquierdo,brazoDerecho,torso,cabeza];
+var parteCuerpo= (numero)=> numero();
+botonDos.addEventListener("click",function(e){
+	botonDos.textContent="Agregar"
+	cajaInput.classList.remove("ejs");
+	palabraNueva.focus();	
+	if (palabraNueva.value== "") {return}																
+	if(regex.test(palabraNueva.value)){
+	 	var palabra=palabraNueva.value
+	 	var nrp=new RegExp(palabra)
+	 	if(!/|\W|\d|_|\s/.test(palabra)){
+	 		if(!nrp.test(palabrasDelJuego)){
+	 			palabrasDelJuego.push(palabra.toLowerCase());
+				palabraNueva.value="";
+				cajaInput.classList.add("ejs");
+		 	}	
 		}
-		inputMovil.value="";
-		if(regex.test(letraInput)){
-			var minusculas=letraInput.toLowerCase();
-			var nreguex=new RegExp(minusculas);
-			if(nreguex.test(texto)){
-				if (!nreguex.test(cajaTres)) {
-					cajaTres=minusculas+letraInput;
-					textoArray.forEach(function(el,p) { 
-						if (el==minusculas) {	
-							posiciones=puntoPartida+((linea+espacio)*p);
+		else{palabraNueva.textContent="";}	
+	}
+});		 
+function jugar(){
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	errores="";
+	erroresLetra.textContent=""
+	letra="",
+	cajaDos="";
+	inputMovil.addEventListener("keyup",comparar)
+	touch.addEventListener("click",()=>{inputMovil.focus()})
+	base();
+	numVidas=6
+	contador.textContent=numVidas
+	inputMovil.focus();
+	botEinp.classList.add("ejs");
+	contador.classList.add("azul");
+	erroresLetra.classList.add("azul");
+	errorL.textContent="Errores"		
+	nVidas.textContent="Vidas"
+	cajaInput.classList.add("ejs");
+	document.getElementById("vidas").classList.add("naranja");
+	document.getElementById("errores").classList.add("naranja");
+	var azar = palabrasDelJuego[Math.floor(Math.random() * palabrasDelJuego.length)];
+	texto = azar;
+	textoArray = texto.split(""); 
+	areaTotal= ((texto.length*linea)+((texto.length-1)*espacio));
+	puntoPartida=((600-areaTotal)/2);
+	textoArray.forEach(function prueba (e,p) {
+		posiciones=puntoPartida+((linea+espacio)*p);
+		ctx.beginPath();
+		ctx.moveTo(posiciones,360);
+		ctx.lineTo(posiciones+linea,360);
+		ctx.stroke();
+	})
+}
+botonjugar.addEventListener("click",jugar);
+touch
+function juez (a,b){
+	inputMovil.removeEventListener("keyup",comparar)
+	touch.removeEventListener("click",()=>{inputMovil.focus()})
+	botEinp.classList.remove("ejs");
+	ctx.font = '40px calibri';
+	ctx.fillStyle = 'Black';
+	ctx.textAlign="center";
+	ctx.fillText(a, 300, 40);
+	ctx.fillText(b, 300, 300);
+}
+function comparar(e){
+	cajaUno=inputMovil.value.toLowerCase();
+	if (!/\d|\W|_/g.test(cajaUno)) {
+		var letraRegex=new RegExp(cajaUno)
+		inputMovil.value=""
+		if (letraRegex.test(texto)) {
+			if (!letraRegex.test(letra)) {
+				letra=cajaUno+letra
+				textoArray.forEach(function (elemento,posicion){
+					if(cajaUno==elemento){
+						posiciones=puntoPartida+((linea+espacio)*posicion);
+						ctx.beginPath();
+						ctx.font="bold 45px arial"; 
+						ctx.textAlign="center";
+						ctx.textBaseline = "alphabetic";
+						ctx.fillText(cajaUno,posiciones+(linea/2),350); 
+						ctx.stroke();
+						cajaDos=elemento+cajaDos;
+						if (cajaDos.length==texto.length) {
+							ganador();
+							juez("¡ felicidades !","acertaste a la palabra :")
+						}
+					}
+				})
+			}
+		}
+		else{ 
+			if (!letraRegex.test(errores)) {
+				errores=cajaUno+errores;
+				erroresLetra.textContent=errores
+				contador.textContent=numVidas-errores.length
+				numero=cuerpo[contador.textContent];
+				parteCuerpo(numero)
+				if (contador.textContent==0) {
+					perdedor()
+					juez("ups perdiste","la palabra correcta es :")
+					textoArray.forEach(function (elemento,posicion){
+							posiciones=puntoPartida+((linea+espacio)*posicion);
 							ctx.beginPath();
 							ctx.font="bold 45px arial"; 
 							ctx.textAlign="center";
 							ctx.textBaseline = "alphabetic";
-							ctx.fillText(minusculas,posiciones+(linea/2),350); 
+							ctx.fillText(elemento,posiciones+(linea/2),350); 
 							ctx.stroke();
-							if(/[1-6]/.test(numVidas)){
-								cajaDos=p+cajaDos;
-								if(cajaDos.length==texto.length){
-									a="¡felicidades!"
-									b=300
-									c=40
-									d="acertaste a la palabra :"
-									e=300
-									f=300
-									cabezaFeliz();
-									torso();
-									brazoDerecho();
-									brazoIzquierdo();
-									piernaDerecha();
-									piernaIzquierda();
-									perdiste(a,b,c,d,e,f);
-								}
-							}
-						}
-					})
-				}	
-			}
-			else{
-				if(!/\s|\W|\d|_/.test(minusculas)){
-					if (!nreguex.test(errores)) {
-						errores=minusculas+errores;
-						erroresLetra.textContent=errores;
-						var resta = numVidas-suma;
-						numVidas=resta-uno
-						contador.textContent=numVidas;	
-						if (regexCuerpo.test(numVidas)) {
-							var numero=cuerpo[numVidas];
-							parteCuerpo(numero);
-							if (numVidas==0) {
-								a=" ups! perdiste"
-								b=300
-								c=40
-								d="la palabra correcta es: "
-								e=300
-								f=300
-								cabezatriste();
-								perdiste(a,b,c,d,e,f);
-							}	
-						}
-					}
-				}else{
-					inputMovil.value="";
+					})		
 				}
-			}	
-		}
-	};
-	function iniciarJuego(){ 	
-		inputMovil.focus();	
-		cajaInput.classList.add("ejs");
-		document.getElementById("vidas").classList.add("naranja");
-		document.getElementById("errores").classList.add("naranja");
-		inputMovil.addEventListener("keyup",compararEntrada)
-		errorL.textContent="Errores"		
-		nVidas.textContent="Vidas"																
-		limpiar();
-		var azar = palabrasDelJuego[Math.floor(Math.random() * palabrasDelJuego.length)];
-		texto = azar;
-		console.log(texto);
-		areaTotal= ((texto.length*linea)+((texto.length-1)*espacio));
-		puntoPartida=((600-areaTotal)/2);
-		numVidas=6
-		contador.textContent=numVidas
-		textoArray = texto.split(""); 	
-		textoArray.forEach(function(el,p) {
-			posiciones=puntoPartida+((linea+espacio)*p);
-			ctx.beginPath();
-			ctx.moveTo(posiciones,360);
-			ctx.lineTo(posiciones+linea,360);
-			ctx.stroke();		
-		})
+			}
+		}	
 	}
-	botonDos.addEventListener("click",function(e){
-		botonDos.textContent="Agregar"
-		cajaInput.classList.remove("ejs");
-		palabraNueva.focus();	
-		if (palabraNueva.value== "") {
-			return
-		}																
-		if(regex.test(palabraNueva.value)){
-			var palabra=palabraNueva.value
-			var nrp=new RegExp(palabra)
-			if(!/\s|\W|\d|_/.test(palabra)){
-				if(!nrp.test(palabrasDelJuego)){
-					palabrasDelJuego.push(palabra.toLowerCase());
-					console.log(palabrasDelJuego);
-					palabraNueva.value="";
-					cajaInput.classList.add("ejs");
-				}
-				else{
-					palabraNueva.value="";
-				}
-			}	
-			else{
-				palabraNueva.value="";
-			}
-		}
-	});
-	botonjugar.addEventListener("click",iniciarJuego);
-	cajaInput.classList.add("ejs");
-	
-	
+	else{inputMovil.value=""}
+}
+
