@@ -276,7 +276,7 @@ input[type="button"]:hover{
 	Estilos visuales del sitio.
 ========================================================================== */
 #fondo_body{
-	background: #11ad8c url() no-repeat center bottom;
+	background: #002d38;
 	background-size: cover;
 	
 }
